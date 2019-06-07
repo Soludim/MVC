@@ -1,0 +1,37 @@
+﻿@using MVC.Models
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<h2 style="margin-left:70px">Add Employee</h2>
+<br />
+
+<div class="container" style="border:1px solid #bbb9b9;border-radius:10px;padding-top:70px;padding-bottom: 50px">
+    <form method="post">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label class="control-label" >Name</label>
+                    <input  class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label class="control-label">Position</label>
+                    <input class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4" style="padding-top:70px">
+                <input value="Create" type="submit" class="btn btn-primary btn-sm">
+                <a asp-controller="Employees" asp-action="Index" class="btn btn-success btn-sm">Back to Index</a>
+            </div>
+        </div>
+    </form>
+</div>

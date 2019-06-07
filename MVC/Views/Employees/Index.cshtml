@@ -1,0 +1,57 @@
+﻿@model MVC.ViewModel.ListEmployeeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@{
+    var data = ViewBag.Message;
+}
+
+@*@if (Model.Message != null)
+{
+    <div class="alert alert-info alert-dismissable" role="alert">
+        <button class="close" data-dismiss="alert" aria-label="alert" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        @Model.Message;
+    </div>
+}*@
+<br />
+
+<h2> @Model.Message </h2>
+<a asp-controller="Employees" asp-action="Create" class="btn btn-primary">Add a New Employee </a>
+@if (Model.Employees.Count > 0)
+{
+    <Form method="post">
+        <div class="container" style="font-size:15px">
+            <h2 class="header">Employees</h2>
+            <div style="border:1px solid #eee;border-radius:10px">
+                <table class="table table-condensed table-hover">
+                    <tr class="row">
+                        <th class="col-sm-3">Name</th>
+                        <th class="col-sm-3">Position</th>
+                    </tr>
+                    @foreach (var item in Model.Employees)
+                    {
+                        <tr class="row">
+                            <td>@item.Name</td>
+                            <td>@item.Position</td>
+                            <td>
+                                <a  asp-controller="Employees" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a>
+                                <a  asp-controller="Employees" asp-action="Detail" asp-route-id="@item.Id" class="btn btn-primary">Detail</a>
+                                <button asp-controller="Employees"  asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</button>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </Form>
+}
+else
+{
+    <p>No Employee found</p>
+}
+
